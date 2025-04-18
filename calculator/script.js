@@ -1,29 +1,40 @@
-const display = document.getElementById('display');
+let expressionDisplay = document.getElementById('expression');
+let resultDisplay = document.getElementById('result');
+let currentExpression = '';
+let lastAnswer = '';
 
 function append(value) {
-  if (display.innerText === '0') {
-    display.innerText = value;
+  if (currentExpression === '0') currentExpression = '';
+  if (value === '√') {
+    currentExpression += 'Math.sqrt(';  // √ becomes Math.sqrt(
   } else {
-    display.innerText += value;
+    currentExpression += value;
   }
+  expressionDisplay.textContent = currentExpression;
 }
 
-function clearDisplay() {
-  display.innerText = '0';
+function delChar() {
+  currentExpression = currentExpression.slice(0, -1);
+  expressionDisplay.textContent = currentExpression || '0';
 }
 
-function deleteLast() {
-  if (display.innerText.length > 1) {
-    display.innerText = display.innerText.slice(0, -1);
-  } else {
-    display.innerText = '0';
-  }
+function clearAll() {
+  currentExpression = '';
+  resultDisplay.textContent = '';
+  expressionDisplay.textContent = '0';
 }
 
 function calculate() {
   try {
-    display.innerText = eval(display.innerText.replace('%', '/100'));
+    let result = eval(currentExpression.replace(/x/g, '*').replace(/÷/g, '/'));
+    resultDisplay.textContent = result;
+    lastAnswer = result;
   } catch {
-    display.innerText = 'Error';
+    resultDisplay.textContent = 'Error';
   }
+}
+
+function useAns() {
+  currentExpression += lastAnswer;
+  expressionDisplay.textContent = currentExpression;
 }
