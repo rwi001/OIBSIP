@@ -1,31 +1,29 @@
-const taskInput = document.getElementById('task-input');
-const addBtn = document.getElementById('add-btn');
-const taskList = document.getElementById('task-list');
+const form = document.getElementById('taskForm');
+const taskList = document.getElementById('taskList');
 
-addBtn.addEventListener('click', addTask);
-taskInput.addEventListener('keypress', function (e) {
-  if (e.key === 'Enter') addTask();
-});
+form.addEventListener('submit', function(e) {
+  e.preventDefault();
 
-function addTask() {
-  const taskText = taskInput.value.trim();
-  if (taskText === '') return;
+  const title = document.getElementById('title').value.trim();
+  const description = document.getElementById('description').value.trim();
 
-  const li = document.createElement('li');
-  li.className = 'task';
-  li.innerHTML = `
-    <span class="task-text">${taskText}</span>
-    <button class="delete-btn">Delete</button>
+  if (title === '' || description === '') {
+    return; // Let HTML5 handle the required message
+  }
+
+  const row = document.createElement('tr');
+  row.innerHTML = `
+    <td>${title}</td>
+    <td>${description}</td>
+    <td><button class="delete-btn">Delete</button></td>
   `;
 
-  li.querySelector('.task-text').addEventListener('click', () => {
-    li.classList.toggle('completed');
+  row.querySelector('.delete-btn').addEventListener('click', () => {
+    taskList.removeChild(row);
   });
 
-  li.querySelector('.delete-btn').addEventListener('click', () => {
-    li.remove();
-  });
+  taskList.appendChild(row);
 
-  taskList.appendChild(li);
-  taskInput.value = '';
-}
+  // Reset form
+  form.reset();
+});

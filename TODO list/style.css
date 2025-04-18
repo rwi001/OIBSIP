@@ -1,99 +1,68 @@
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  }
-  
-  body {
-    background: #639cda;
-    display: flex;
-    justify-content: center;
-    padding: 20px;
-  }
-  
-  .container {
-    background: white;
-    padding: 30px;
-    border-radius: 15px;
-    width: 100%;
-    max-width: 500px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  }
-  
-  h1 {
-    text-align: center;
-    margin-bottom: 20px;
-  }
-  
-  .input-group {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 20px;
-  }
-  
-  #task-input {
-    flex: 1;
-    padding: 10px;
-    font-size: 16px;
-    border: 2px solid #ccc;
-    border-radius: 8px;
-  }
-  
-  #add-btn {
-    padding: 10px 20px;
-    font-size: 16px;
-    background: #4caf50;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-  }
-  
-  #add-btn:hover {
-    background: #45a049;
-  }
-  
-  #task-list {
-    list-style: none;
-  }
-  
-  .task {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: #eee;
-    padding: 10px;
-    border-radius: 8px;
-    margin-bottom: 10px;
-  }
-  
-  .task.completed {
-    text-decoration: line-through;
-    color: #999;
-    background: #d0ffd0;
-  }
-  
-  .task button {
-    background: #ff5252;
-    border: none;
-    color: white;
-    padding: 5px 10px;
-    border-radius: 8px;
-    cursor: pointer;
-  }
-  
-  .task button:hover {
-    background: #e60000;
-  }
-  
-  @media (max-width: 500px) {
-    #add-btn {
-      font-size: 14px;
-    }
-  
-    #task-input {
-      font-size: 14px;
-    }
-  }
-  
+body {
+  font-family: Arial, sans-serif;
+  background: #6d85c5;
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+.container {
+  display: flex;
+  gap: 40px;
+}
+.form {
+  background: #231717;
+  color: #000;
+  padding: 20px;
+  border-radius: 8px;
+  width: 300px;
+}
+.form input, .form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+.form button {
+  background-color: #28a745;
+  color: #fff;
+  padding: 10px;
+  width: 100%;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+}
+.tasks {
+  flex: 1;
+  width: 500px;
+}
+.tasks table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.tasks th, .tasks td {
+  margin-left: 12px;
+  text-align: left;
+  padding: 12px;
+  background: #59beb6;
+  color: #000;
+  border-bottom: 1px solid #ccc;
+  font-family: sans-serif;
+}
+.delete-btn {
+  background: #dc3545;
+  color: white;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+ h2 img{
+  width: 30px;
+  height: 25px;
+  margin-left: 10px;
+}
+h2{
+  color: aliceblue;
+}
