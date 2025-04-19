@@ -1,5 +1,5 @@
 body {
-    background:linear-gradient(135deg,#4A90E2,#ccc);
+    background:linear-gradient(135deg, rgb(183, 74, 74),rgb(204, 191, 107)); 
     font-family: sans-serif;
     display: flex;
     justify-content: center;
@@ -9,12 +9,13 @@ body {
   }
 
   .converter {
-    background:linear-gradient(135deg, rgb(183, 74, 74),rgb(204, 191, 107));
+    background:linear-gradient(135deg,#4A90E2,#ccc);
     padding: 30px;
     border-radius: 20px;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
     width: 320px;
   }
+
 
   .converter h2 {
     text-align: center;
@@ -43,7 +44,7 @@ body {
     width: 100%;
     padding: 12px;
     font-size: 16px;
-    background-color: #4A90E2;
+    background-color: #9b4ae2;
     color: white;
     border: none;
     border-radius: 10px;
