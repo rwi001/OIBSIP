@@ -1,32 +1,42 @@
-let expressionDisplay = document.getElementById('expression');
-let resultDisplay = document.getElementById('result');
-let currentExpression = '';
+let expression = '';
 let lastAnswer = '';
+const expressionDisplay = document.getElementById('expression');
+const resultDisplay = document.getElementById('result');
 
+// Append a value to the expression
 function append(value) {
-  if (currentExpression === '0') currentExpression = '';
-  if (value === '√') {
-    currentExpression += 'Math.sqrt(';  // √ becomes Math.sqrt(
+  if (value === '±') {
+    if (expression) {
+      expression = `-1*(${expression})`;
+    }
   } else {
-    currentExpression += value;
+    expression += value;
   }
-  expressionDisplay.textContent = currentExpression;
+  expressionDisplay.textContent = expression;
 }
 
+// Delete the last character
 function delChar() {
-  currentExpression = currentExpression.slice(0, -1);
-  expressionDisplay.textContent = currentExpression || '0';
+  expression = expression.slice(0, -1);
+  expressionDisplay.textContent = expression || '0';
 }
 
+// Clear everything
 function clearAll() {
-  currentExpression = '';
-  resultDisplay.textContent = '';
+  expression = '';
+  resultDisplay.textContent = '0';
   expressionDisplay.textContent = '0';
 }
 
+// Evaluate the expression
 function calculate() {
   try {
-    let result = eval(currentExpression.replace(/x/g, '*').replace(/÷/g, '/'));
+    const replacedExpr = expression
+      .replace(/x/g, '*')
+      .replace(/÷/g, '/')
+      .replace(/√/g, 'Math.sqrt(');
+
+    const result = eval(replacedExpr);
     resultDisplay.textContent = result;
     lastAnswer = result;
   } catch {
@@ -34,7 +44,8 @@ function calculate() {
   }
 }
 
+// Use previous answer
 function useAns() {
-  currentExpression += lastAnswer;
-  expressionDisplay.textContent = currentExpression;
+  expression += lastAnswer;
+  expressionDisplay.textContent = expression;
 }

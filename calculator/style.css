@@ -1,12 +1,18 @@
-*{
-  background: linear-gradient(135deg, #153677, #4e085f);
-  margin: 0;
-  font-family: sans-serif;
+* {
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  
+  background: linear-gradient(135deg,#5bdce3,#f0f9cc);
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
+  margin: 0;
 }
+
 .calculator {
   background-color: #1e2025;
   padding: 20px;
@@ -21,7 +27,7 @@
   margin-bottom: 20px;
   font-size: 20px;
   text-align: left;
-  height: 60px;
+  height: 80px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -41,7 +47,7 @@ button {
   border: none;
   border-radius: 10px;
   background-color: #b6d7ff;
-  font-size: 25px;
+  font-size: 20px;
   cursor: pointer;
   transition: background 0.2s;
 }
@@ -52,6 +58,7 @@ button:hover {
   background-color: #665be3;
   color: white;
   grid-column: span 2;
+  
 }
 
 .clk{
