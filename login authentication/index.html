@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+<title>Login Authentication</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="auth-container" role="main" aria-label="Authentication forms">
+    <h2 id="form-title">Login</h2>
+    <form id="authForm" novalidate>
+      <label for="username">Username (email)</label>
+      <input type="text" id="username" name="username" autocomplete="username" required aria-required="true" />
+      <label for="password">Password</label>
+      <input type="password" id="password" name="password" autocomplete="current-password" required aria-required="true" />
+      <button type="submit" id="submitBtn">Log In</button>
+      <div id="message" class="message" aria-live="polite"></div>
+    </form>
+    <span class="toggle-link" id="toggleLink" tabindex="0" role="button" aria-pressed="false">Don't have an account? Sign Up</span>
+    
+    <div id="welcomeSection" style="display:none; flex-direction: column; align-items: center;">
+      <div class="welcome-message" id="welcomeMessage"></div>
+      <button class="logout-button" id="logoutBtn" aria-label="Logout button">Logout</button>
+    </div>
+  </div>
+
+<script src="script.js"></script>
+</body>
+</html>
